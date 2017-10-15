@@ -32,8 +32,21 @@ public class Dog implements Serializable {
 	private Breed breed;
 
 	// bi-directional many-to-one association to Userdoglike
+	@JsonIgnore
 	@OneToMany(mappedBy = "dog")
 	private List<Userdoglike> userdoglikes;
+	
+	
+	@Transient
+	private int count;
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
 
 	public Dog() {
 	}

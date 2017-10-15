@@ -30,6 +30,10 @@ public class BreedServiceImpl implements BreedService {
 		return this.breedDao.getAllBreedsbyName(name);
 	}
 
+	@Override
+	public void gethome() {;
+	}
+
 //	@Override
 //	public List<Dog> getAllDogsByBreed() {
 //		

@@ -3,6 +3,8 @@ package org.java.develop.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * The persistent class for the userdoglike database table.
@@ -18,11 +20,13 @@ public class Userdoglike implements Serializable {
 	private int iduserdoglike;
 
 	//bi-directional many-to-one association to Dog
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="userdogdogid")
 	private Dog dog;
 
 	//bi-directional many-to-one association to User
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="userdogid")
 	private User user;

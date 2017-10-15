@@ -3,8 +3,6 @@ package org.java.develop.Controller;
 import java.util.List;
 
 import org.java.develop.model.Breed;
-import org.java.develop.model.Dog;
-import org.java.develop.model.Views;
 import org.java.develop.service.BreedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.annotation.JsonView;
 
 @RestController
 @RequestMapping("/Breed")
 public class BreedController {
 	@Autowired
 	private BreedService breedService;
+	
 
 	public void setBreedService(BreedService breedService) {
 		this.breedService = breedService;
