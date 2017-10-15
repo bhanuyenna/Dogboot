@@ -18,6 +18,12 @@ public class DogDaoImpl implements DogDao {
 		Dog dog =  (Dog) dogRepository.getByDogid(id) ;
 		return dog;
 	}
+
+	@Override
+	public List<Dog> getAllDogs() {
+		
+		return (List<Dog>) dogRepository.findAll();
+	}
 	
 	
 

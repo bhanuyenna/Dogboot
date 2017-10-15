@@ -39,6 +39,17 @@ public class Dog implements Serializable {
 	
 	@Transient
 	private int count;
+	
+	@Transient
+	private String dogBreed;
+
+	public String getDogBreed() {
+		return dogBreed;
+	}
+
+	public void setDogBreed(String dogBreed) {
+		this.dogBreed = dogBreed;
+	}
 
 	public int getCount() {
 		return count;

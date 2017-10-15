@@ -36,6 +36,12 @@ public class DogController {
 	}
 	
 	
+	@RequestMapping(value="/getAllDogs",method=RequestMethod.GET)
+	public @ResponseBody ResponseEntity<List<Dog>> getAllDogs(){
+		List<Dog> dogs = dogService.getAllDogs();
+		return new ResponseEntity<List<Dog>>(dogs, HttpStatus.OK);
+	}
+	
 	
 	
 	

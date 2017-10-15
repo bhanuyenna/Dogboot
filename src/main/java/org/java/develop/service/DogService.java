@@ -6,5 +6,6 @@ import org.java.develop.model.Dog;
 
 public interface DogService {
 public Dog getByDogId(int id);
+public List<Dog> getAllDogs();
 
 }
