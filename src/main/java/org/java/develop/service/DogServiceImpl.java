@@ -34,6 +34,7 @@ public class DogServiceImpl implements DogService {
 			d.setCount(d.getUserdoglikes().size());
 			d.setDogBreed(d.getBreed().getBreedName());
 		}
+		dogs.sort(new DogComparator());
 		return dogs;
 	}
 
