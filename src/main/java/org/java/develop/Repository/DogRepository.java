@@ -1,8 +1,6 @@
 package org.java.develop.Repository;
 
 
-import java.util.List;
-
 import org.java.develop.model.Dog;
 import org.springframework.data.repository.CrudRepository;
 

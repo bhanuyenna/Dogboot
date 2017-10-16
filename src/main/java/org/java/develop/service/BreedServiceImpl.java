@@ -6,7 +6,6 @@ import javax.transaction.Transactional;
 
 import org.java.develop.Dao.BreedDao;
 import org.java.develop.model.Breed;
-import org.java.develop.model.Dog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

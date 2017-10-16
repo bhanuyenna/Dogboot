@@ -1,6 +1,5 @@
 package org.java.develop.Dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.java.develop.Repository.DogRepository;
