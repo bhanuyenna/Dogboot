@@ -3,7 +3,6 @@ package org.java.develop.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 import java.util.List;
 
 /**
@@ -23,8 +22,8 @@ public class Breed implements Serializable {
 	private String breedName;
 
 	// bi-directional many-to-one association to Dog
-	//@JsonBackReference
-	@OneToMany(mappedBy = "breed", fetch=FetchType.LAZY,targetEntity=Dog.class)
+	// @JsonBackReference
+	@OneToMany(mappedBy = "breed", fetch = FetchType.LAZY, targetEntity = Dog.class)
 	private List<Dog> dogs;
 
 	public Breed() {
@@ -67,10 +66,11 @@ public class Breed implements Serializable {
 
 		return dog;
 	}
-//
-//	@Override
-//	public String toString() {
-//		return "Breed [id=" + id + ", breedName=" + breedName + ", dogs=" + dogs+ "]";
-//	}
+	//
+	// @Override
+	// public String toString() {
+	// return "Breed [id=" + id + ", breedName=" + breedName + ", dogs=" + dogs+
+	// "]";
+	// }
 
 }

@@ -26,7 +26,7 @@ public class Dog implements Serializable {
 
 	// bi-directional many-to-one association to Breed
 	@JsonIgnore
-	@ManyToOne( fetch=FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "dogbreedid")
 	private Breed breed;
 
@@ -34,11 +34,10 @@ public class Dog implements Serializable {
 	@JsonIgnore
 	@OneToMany(mappedBy = "dog")
 	private List<Userdoglike> userdoglikes;
-	
-	
+
 	@Transient
 	private int count;
-	
+
 	@Transient
 	private String dogBreed;
 
@@ -115,10 +114,11 @@ public class Dog implements Serializable {
 		return userdoglike;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Dog [dogid=" + dogid + ", dogname=" + dogname + ", imageurl=" + imageurl + ", breed=" + breed
-//				+ ", userdoglikes=" + userdoglikes + "]";
-//	}
+	// @Override
+	// public String toString() {
+	// return "Dog [dogid=" + dogid + ", dogname=" + dogname + ", imageurl=" +
+	// imageurl + ", breed=" + breed
+	// + ", userdoglikes=" + userdoglikes + "]";
+	// }
 
 }

@@ -14,16 +14,22 @@ public class DogDaoImpl implements DogDao {
 
 	@Override
 	public Dog getDogByID(int id) {
-		Dog dog =  (Dog) dogRepository.getByDogid(id) ;
+		Dog dog = (Dog) dogRepository.getByDogid(id);
 		return dog;
 	}
 
 	@Override
 	public List<Dog> getAllDogs() {
-		
+
 		return (List<Dog>) dogRepository.findAll();
 	}
-	
-	
+
+	@Override
+	public Dog getByImageUrl(String imageurl) {
+		Dog doglike = (Dog) dogRepository.getByImageurl(imageurl);
+		// doglike.setDogBreed( this.getDogByID(doglike.getDogid()).getDogBreed());
+		doglike.getBreed();
+		return doglike;
+	}
 
 }

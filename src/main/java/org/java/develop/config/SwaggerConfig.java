@@ -14,30 +14,22 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @Configuration
 public class SwaggerConfig {
-	
-	private static final String DOG_API_VERSION="1.0";
-	private static final String Dog_License="Licensed by bhanuyenna";
-	private static final String Dog_title="Dog REST API";
-	private static final String Dog_description="REST API for dog application";
-	
+
+	private static final String DOG_API_VERSION = "1.0";
+	private static final String Dog_License = "Licensed by bhanuyenna";
+	private static final String Dog_title = "Dog REST API";
+	private static final String Dog_description = "REST API for dog application";
+
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder()
-				.title(Dog_title)
-				.description(Dog_description)
-				.license(Dog_License)
-				.version(DOG_API_VERSION)
-				.build();
+		return new ApiInfoBuilder().title(Dog_title).description(Dog_description).license(Dog_License)
+				.version(DOG_API_VERSION).build();
 	}
+
 	@Bean
 	public Docket dogApi() {
-		return new Docket(DocumentationType.SWAGGER_2)
-				.apiInfo(apiInfo())
-				.pathMapping("/")
-				.select()
-				.apis(RequestHandlerSelectors.basePackage("org.java.develop"))
-				.paths(PathSelectors.regex( "/api.*"))
+		return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).pathMapping("/").select()
+				.apis(RequestHandlerSelectors.basePackage("org.java.develop")).paths(PathSelectors.regex("/api.*"))
 				.build();
 	}
-	
 
 }

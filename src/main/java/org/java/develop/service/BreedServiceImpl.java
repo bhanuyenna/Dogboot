@@ -14,12 +14,11 @@ public class BreedServiceImpl implements BreedService {
 
 	@Autowired()
 	private BreedDao breedDao;
-	
+
 	@Override
 	public List<Breed> getAllBreeds() {
-		
-		List<Breed>breed  = breedDao.getAllBreeds();
-		System.out.println(breed);
+
+		List<Breed> breed = breedDao.getAllBreeds();
 		return breed;
 	}
 
@@ -30,13 +29,8 @@ public class BreedServiceImpl implements BreedService {
 	}
 
 	@Override
-	public void gethome() {;
+	public void gethome() {
+		;
 	}
-
-//	@Override
-//	public List<Dog> getAllDogsByBreed() {
-//		
-//		return this.breedDao.getAllDogsByBreed();
-//	}
 
 }

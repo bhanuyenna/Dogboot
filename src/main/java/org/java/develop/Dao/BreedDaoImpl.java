@@ -17,25 +17,10 @@ public class BreedDaoImpl implements BreedDao {
 		return (List<Breed>) breedRepository.findAll();
 	}
 
-	/*public List<Dog> getAllDogsByBreed(){
-		List<Breed> breed = new ArrayList<>();
-		List<Dog> dogbybreed= new ArrayList<>();
-		breedRepository.findAll().forEach(breed::add);
-		System.out.println("The number of breed are:"+breed.size());
-		for(Breed breedobj:breed) {
-			breedobj.getDogs().forEach(dogbybreed::add);
-			System.out.println("The number ofdogs in breed are:"+breedobj.getDogs().size());
-			
-		}
-		return dogbybreed;
-	}*/
-	
-	
 	@Override
 	public List<Breed> getAllBreedsbyName(String name) {
-		
+
 		return breedRepository.getByBreedName(name);
 	}
-	
-	
+
 }
