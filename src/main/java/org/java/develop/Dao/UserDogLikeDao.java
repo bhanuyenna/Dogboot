@@ -13,4 +13,6 @@ public interface UserDogLikeDao {
 
 	public Boolean getUserDogLike(Dog d, User user);
 
+	public Userdoglike getlikes(Dog d, User user);
+
 }

@@ -35,4 +35,15 @@ public class UserDogLikeDaoImpl implements UserDogLikeDao {
 		}
 
 	}
+
+	@Override
+	public Userdoglike getlikes(Dog dog, User user) {
+		
+		return (Userdoglike)userDogLikeRepository.findByDogAndUser(dog, user);
+	}
+
+
+	
+
+
 }

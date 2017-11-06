@@ -5,4 +5,6 @@ import org.java.develop.model.Userdoglike;
 public interface UserDogLikeService {
 
 	public Userdoglike saveDogLike(String username, String imageurl,Boolean isLike);
+	
+	public Userdoglike updateDogLike(String username, String imageurl,Boolean isLike);
 }

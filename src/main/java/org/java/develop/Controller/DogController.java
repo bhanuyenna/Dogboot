@@ -42,8 +42,6 @@ public class DogController {
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Dog.class) })
 	public @ResponseBody ResponseEntity<Dog> getDog(@PathVariable("id") int id) {
 		Dog dog = dogService.getByDogId(id);
-		System.out.println(
-				"The number of like for dog\t---" + dog.getDogname() + "---is---" + dog.getUserdoglikes().size());
 		return new ResponseEntity<Dog>(dog, HttpStatus.OK);
 
 	}
@@ -58,15 +56,27 @@ public class DogController {
 	}
 
 	// like a dog by user
-	@RequestMapping(value = "/getUserdoglike/{username}/{imageurl}/{isLike}", method = RequestMethod.POST)
+	@RequestMapping(value = "/saveUserdoglike/{username}/{imageurl}/{isLike}", method = RequestMethod.POST)
 	@ApiOperation("Check the dog is liked by user or not if not like it")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Userdoglike.class) })
 	public @ResponseBody ResponseEntity<Userdoglike> addUserlike(@PathVariable("username") String username,
-			@PathVariable("imageurl") String imageurl,@PathVariable("isLike") Boolean isLike) {
+			@PathVariable("imageurl") String imageurl, @PathVariable("isLike") Boolean isLike) {
 
-		Userdoglike userDog = userDogLikeService.saveDogLike(username, imageurl,isLike);
+		Userdoglike userDog = userDogLikeService.saveDogLike(username, imageurl, isLike);
 		return new ResponseEntity<Userdoglike>(userDog, HttpStatus.OK);
 
 	}
+	
+	//update  like a dog by user
+		@RequestMapping(value = "/updateUserdoglike/{username}/{imageurl}/{isLike}", method = RequestMethod.PUT)
+		@ApiOperation("Check the dog is liked by user or not if not like it")
+		@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Userdoglike.class) })
+		public @ResponseBody ResponseEntity<Userdoglike> updateUserlike(@PathVariable("username") String username,
+				@PathVariable("imageurl") String imageurl, @PathVariable("isLike") Boolean isLike) {
+
+			Userdoglike userDog = userDogLikeService.updateDogLike(username, imageurl, isLike);
+			return new ResponseEntity<Userdoglike>(userDog, HttpStatus.OK);
+
+		}
 
 }

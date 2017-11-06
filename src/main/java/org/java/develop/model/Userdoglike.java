@@ -32,8 +32,6 @@ public class Userdoglike implements Serializable {
 	
 	@Column(name="islike")
 	private Boolean isLike;
-	
-	
 
 	public Boolean getIsLike() {
 		return isLike;

@@ -13,4 +13,5 @@ public interface UserDogLikeRepository extends CrudRepository<Userdoglike, Integ
 
 	Userdoglike findByDogAndUser(Dog dog, User user);
 
+
 }

@@ -24,7 +24,7 @@ public class UserDogLikeServiceImpl implements UserDogLikeService {
 
 		Dog dog = dogService.getDogByImageUrl(imageurl);
 		User user = userService.getByUsername(userName);
-		userDogLikeDao.getUserDogLike(dog, user);
+		 userDogLikeDao.getUserDogLike(dog, user);
 		if (!userDogLikeDao.getUserDogLike(dog, user)) {
 			this.udl.setDog(dog);
 			this.udl.setUser(user);
@@ -35,5 +35,32 @@ public class UserDogLikeServiceImpl implements UserDogLikeService {
 		}
 
 	}
+	public Userdoglike updateDogLike(String userName, String imageurl,Boolean isLike) {
+
+		Dog dog = dogService.getDogByImageUrl(imageurl);
+		User user = userService.getByUsername(userName);
+		 userDogLikeDao.getUserDogLike(dog, user);
+		if (userDogLikeDao.getUserDogLike(dog, user)==true) {
+			this.udl.setIduserdoglike( userDogLikeDao.getlikes(dog, user).getIduserdoglike());
+			this.udl.setDog(dog);
+			this.udl.setUser(user);
+			System.out.println(udl.getIduserdoglike());
+			if(isLike == userDogLikeDao.getlikes(dog, user).getIsLike()) {
+				this.udl.setIsLike(!isLike);
+				return userDogLikeDao.Savedoglike(this.udl);
+			}else {
+				this.udl.setIduserdoglike( userDogLikeDao.getlikes(dog, user).getIduserdoglike());
+				this.udl.setIsLike(isLike);
+				return userDogLikeDao.Savedoglike(this.udl);
+			}
+		} else {
+			return null;
+		}
+
+	}
+
+	
+	
+	
 
 }
