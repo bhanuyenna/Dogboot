@@ -29,6 +29,19 @@ public class Userdoglike implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "userdogid")
 	private User user;
+	
+	@Column(name="islike")
+	private Boolean isLike;
+	
+	
+
+	public Boolean getIsLike() {
+		return isLike;
+	}
+
+	public void setIsLike(Boolean isLike) {
+		this.isLike = isLike;
+	}
 
 	public Userdoglike() {
 	}

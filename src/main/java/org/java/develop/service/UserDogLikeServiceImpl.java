@@ -20,7 +20,7 @@ public class UserDogLikeServiceImpl implements UserDogLikeService {
 	private UserDogLikeDao userDogLikeDao;
 
 	@Override
-	public Userdoglike saveDogLike(String userName, String imageurl) {
+	public Userdoglike saveDogLike(String userName, String imageurl,Boolean isLike) {
 
 		Dog dog = dogService.getDogByImageUrl(imageurl);
 		User user = userService.getByUsername(userName);
@@ -28,6 +28,7 @@ public class UserDogLikeServiceImpl implements UserDogLikeService {
 		if (!userDogLikeDao.getUserDogLike(dog, user)) {
 			this.udl.setDog(dog);
 			this.udl.setUser(user);
+			this.udl.setIsLike(isLike);
 			return userDogLikeDao.Savedoglike(this.udl);
 		} else {
 			return null;

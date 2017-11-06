@@ -58,13 +58,13 @@ public class DogController {
 	}
 
 	// like a dog by user
-	@RequestMapping(value = "/getUserdoglike/{username}/{imageurl}", method = RequestMethod.POST)
+	@RequestMapping(value = "/getUserdoglike/{username}/{imageurl}/{isLike}", method = RequestMethod.POST)
 	@ApiOperation("Check the dog is liked by user or not if not like it")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Userdoglike.class) })
 	public @ResponseBody ResponseEntity<Userdoglike> addUserlike(@PathVariable("username") String username,
-			@PathVariable("imageurl") String imageurl) {
+			@PathVariable("imageurl") String imageurl,@PathVariable("isLike") Boolean isLike) {
 
-		Userdoglike userDog = userDogLikeService.saveDogLike(username, imageurl);
+		Userdoglike userDog = userDogLikeService.saveDogLike(username, imageurl,isLike);
 		return new ResponseEntity<Userdoglike>(userDog, HttpStatus.OK);
 
 	}
