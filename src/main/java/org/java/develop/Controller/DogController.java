@@ -26,10 +26,10 @@ import io.swagger.annotations.ApiResponses;
 @Api(value = "Dog Controller API", produces = MediaType.APPLICATION_JSON_VALUE)
 
 public class DogController {
-	@Autowired
+	@Autowired(required  = true)
 	private DogService dogService;
 
-	@Autowired
+	@Autowired(required  = true)
 	private UserDogLikeService userDogLikeService;
 
 	public void setDogService(DogService dogService) {
@@ -57,7 +57,7 @@ public class DogController {
 
 	// like a dog by user
 	@RequestMapping(value = "/saveUserdoglike/{username}/{imageurl}/{isLike}", method = RequestMethod.POST)
-	@ApiOperation("Check the dog is liked by user or not if not like it")
+	@ApiOperation("Check the dog is liked by user or not and save it on users input")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Userdoglike.class) })
 	public @ResponseBody ResponseEntity<Userdoglike> addUserlike(@PathVariable("username") String username,
 			@PathVariable("imageurl") String imageurl, @PathVariable("isLike") Boolean isLike) {
@@ -69,7 +69,7 @@ public class DogController {
 	
 	//update  like a dog by user
 		@RequestMapping(value = "/updateUserdoglike/{username}/{imageurl}/{isLike}", method = RequestMethod.PUT)
-		@ApiOperation("Check the dog is liked by user or not if not like it")
+		@ApiOperation("update the dog like based on the user input")
 		@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Userdoglike.class) })
 		public @ResponseBody ResponseEntity<Userdoglike> updateUserlike(@PathVariable("username") String username,
 				@PathVariable("imageurl") String imageurl, @PathVariable("isLike") Boolean isLike) {

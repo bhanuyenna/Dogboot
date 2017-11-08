@@ -1,5 +1,6 @@
 package org.java.develop.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.java.develop.model.Breed;
@@ -35,8 +36,9 @@ public class BreedController {
 	@ApiOperation("Get all the breeds and dogs in the breed")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Breed.class) })
 	public ResponseEntity<List<Breed>> listAllBreeds() {
+		List<Breed> breeds = new ArrayList<Breed>();
 
-		List<Breed> breeds = breedService.getAllBreeds();
+		 breeds = breedService.getAllBreeds();
 
 		return new ResponseEntity<List<Breed>>(breeds, HttpStatus.OK);
 	}
@@ -44,9 +46,9 @@ public class BreedController {
 	@RequestMapping(value = "/getBreedsBy/{breedname}", method = RequestMethod.GET)
 	@ApiOperation("Get Breed by a specific breed name")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Breed.class) })
-	public @ResponseBody ResponseEntity<List<Breed>> getBreedbyName(@PathVariable("breedname") String name) {
-		List<Breed> breeds = breedService.getAllBreedsbyName(name);
-		return new ResponseEntity<List<Breed>>(breeds, HttpStatus.OK);
+	public @ResponseBody ResponseEntity<Breed> getBreedbyName(@PathVariable("breedname") String name) {
+		Breed breeds = breedService.getAllBreedsbyName(name);
+		return new ResponseEntity<Breed>(breeds, HttpStatus.OK);
 
 	}
 

@@ -18,7 +18,7 @@ public class BreedDaoImpl implements BreedDao {
 	}
 
 	@Override
-	public List<Breed> getAllBreedsbyName(String name) {
+	public Breed getBreedbyName(String name) {
 
 		return breedRepository.getByBreedName(name);
 	}

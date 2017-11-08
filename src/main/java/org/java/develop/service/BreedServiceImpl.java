@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.java.develop.Dao.BreedDao;
 import org.java.develop.model.Breed;
+import org.java.develop.model.Dog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,14 +19,29 @@ public class BreedServiceImpl implements BreedService {
 	@Override
 	public List<Breed> getAllBreeds() {
 
-		List<Breed> breed = breedDao.getAllBreeds();
-		return breed;
+		List<Breed> breeds = breedDao.getAllBreeds();
+		for(Breed b:breeds)
+		{
+			List<Dog> dogs = b.getDogs();
+			for (Dog d : dogs) {
+				d.setCount(d.getUserdoglikes().size());
+				d.setDogBreed(d.getBreed().getBreedName());
+			}
+		}
+		return breeds;
 	}
 
 	@Override
 	@Transactional
-	public List<Breed> getAllBreedsbyName(String name) {
-		return this.breedDao.getAllBreedsbyName(name);
+	public Breed getAllBreedsbyName(String name) {
+		Breed breedByName = this.breedDao.getBreedbyName(name);
+		List<Dog> dogs = breedByName.getDogs();
+		for (Dog d : dogs) {
+			d.setCount(d.getUserdoglikes().size());
+			d.setDogBreed(d.getBreed().getBreedName());
+		}
+		breedByName.setDogs(dogs);
+		return breedByName ;
 	}
 
 	@Override
