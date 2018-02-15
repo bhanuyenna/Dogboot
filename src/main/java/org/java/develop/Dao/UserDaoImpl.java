@@ -13,7 +13,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public User getByUsername(String userName) {
 
-		return (User) userRepository.getByUsername(userName);
+		return (User) userRepository.getByUserName(userName);
 
 	}
 

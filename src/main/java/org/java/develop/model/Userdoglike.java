@@ -3,6 +3,8 @@ package org.java.develop.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import org.hibernate.annotations.Type;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -16,21 +18,22 @@ public class Userdoglike implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int iduserdoglike;
+	private int idUserDogLike;
 
 	// bi-directional many-to-one association to Dog
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "userdogdogid")
+	@JoinColumn(name = "dogId")
 	private Dog dog;
 
 	// bi-directional many-to-one association to User
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "userdogid")
+	@JoinColumn(name = "userId")
 	private User user;
 	
-	@Column(name="islike")
+	@Column(name="isLike")
+	@Type(type="boolean")
 	private Boolean isLike;
 
 	public Boolean getIsLike() {
@@ -44,12 +47,14 @@ public class Userdoglike implements Serializable {
 	public Userdoglike() {
 	}
 
-	public int getIduserdoglike() {
-		return this.iduserdoglike;
+	
+
+	public int getIdUserDogLike() {
+		return idUserDogLike;
 	}
 
-	public void setIduserdoglike(int iduserdoglike) {
-		this.iduserdoglike = iduserdoglike;
+	public void setIdUserDogLike(int idUserDogLike) {
+		this.idUserDogLike = idUserDogLike;
 	}
 
 	public Dog getDog() {

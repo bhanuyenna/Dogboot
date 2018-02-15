@@ -5,7 +5,7 @@ import org.java.develop.model.User;
 import org.java.develop.model.Userdoglike;
 import org.springframework.data.repository.CrudRepository;
 
-public interface UserDogLikeRepository extends CrudRepository<Userdoglike, Integer> {
+public interface UserdoglikeRepository extends CrudRepository<Userdoglike, Integer> {
 
 	Dog getByDog(Dog dog);
 

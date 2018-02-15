@@ -41,14 +41,14 @@ public class UserDogLikeServiceImpl implements UserDogLikeService {
 		User user = userService.getByUsername(userName);
 		 userDogLikeDao.getUserDogLike(dog, user);
 		if (userDogLikeDao.getUserDogLike(dog, user)==true) {
-			this.udl.setIduserdoglike( userDogLikeDao.getlikes(dog, user).getIduserdoglike());
+			this.udl.setIdUserDogLike( userDogLikeDao.getlikes(dog, user).getIdUserDogLike());
 			this.udl.setDog(dog);
 			this.udl.setUser(user);
 			if(isLike == userDogLikeDao.getlikes(dog, user).getIsLike()) {
 				this.udl.setIsLike(!isLike);
 				return userDogLikeDao.Savedoglike(this.udl);
 			}else {
-				this.udl.setIduserdoglike( userDogLikeDao.getlikes(dog, user).getIduserdoglike());
+				this.udl.setIdUserDogLike( userDogLikeDao.getlikes(dog, user).getIdUserDogLike());
 				this.udl.setIsLike(isLike);
 				return userDogLikeDao.Savedoglike(this.udl);
 			}

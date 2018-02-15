@@ -18,16 +18,16 @@ public class Dog implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int dogid;
+	private int dogId;
 
-	private String dogname;
+	private String dogName;
 
-	private String imageurl;
+	private String imageUrl;
 
 	// bi-directional many-to-one association to Breed
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "dogbreedid")
+	@JoinColumn(name = "breedId")
 	private Breed breed;
 
 	// bi-directional many-to-one association to Userdoglike
@@ -60,28 +60,29 @@ public class Dog implements Serializable {
 	public Dog() {
 	}
 
-	public int getDogid() {
-		return this.dogid;
+
+	public int getDogId() {
+		return dogId;
 	}
 
-	public void setDogid(int dogid) {
-		this.dogid = dogid;
+	public void setDogId(int dogId) {
+		this.dogId = dogId;
 	}
 
-	public String getDogname() {
-		return this.dogname;
+	public String getDogName() {
+		return dogName;
 	}
 
-	public void setDogname(String dogname) {
-		this.dogname = dogname;
+	public void setDogName(String dogName) {
+		this.dogName = dogName;
 	}
 
-	public String getImageurl() {
-		return this.imageurl;
+	public String getImageUrl() {
+		return imageUrl;
 	}
 
-	public void setImageurl(String imageurl) {
-		this.imageurl = imageurl;
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	public Breed getBreed() {

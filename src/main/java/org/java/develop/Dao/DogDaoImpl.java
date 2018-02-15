@@ -14,7 +14,7 @@ public class DogDaoImpl implements DogDao {
 
 	@Override
 	public Dog getDogByID(int id) {
-		Dog dog = (Dog) dogRepository.getByDogid(id);
+		Dog dog = (Dog) dogRepository.getByDogId(id);
 		return dog;
 	}
 
@@ -26,7 +26,7 @@ public class DogDaoImpl implements DogDao {
 
 	@Override
 	public Dog getByImageUrl(String imageurl) {
-		Dog doglike = (Dog) dogRepository.getByImageurl(imageurl);
+		Dog doglike = (Dog) dogRepository.getByImageUrl(imageurl);
 		// doglike.setDogBreed( this.getDogByID(doglike.getDogid()).getDogBreed());
 		doglike.getBreed();
 		return doglike;

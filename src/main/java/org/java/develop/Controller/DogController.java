@@ -2,6 +2,8 @@ package org.java.develop.Controller;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
+
 import org.java.develop.model.Dog;
 import org.java.develop.model.Userdoglike;
 import org.java.develop.service.DogService;
@@ -11,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -66,6 +69,19 @@ public class DogController {
 		return new ResponseEntity<Userdoglike>(userDog, HttpStatus.OK);
 
 	}
+	//save like for a dog by userdoglike object
+		@RequestMapping(value = "/saveUserdoglike", method = RequestMethod.POST)
+		@Consumes(MediaType.APPLICATION_JSON_VALUE)
+		@ApiOperation("Check the dog is liked by user or not and save it on users input")
+		@ApiResponses(value = { @ApiResponse(code = 201, message = "Success", response = Userdoglike.class) })
+		public @ResponseBody ResponseEntity<Userdoglike> saveUserlike(@RequestBody Userdoglike userDogLike) {
+			String userName = userDogLike.getUser().getUserName();
+			String imageUrl = userDogLike.getDog().getImageUrl();
+			boolean isLike = userDogLike.getIsLike();
+			Userdoglike userDog = userDogLikeService.saveDogLike(userName, imageUrl, isLike);
+			return new ResponseEntity<Userdoglike>(userDog, HttpStatus.CREATED);
+
+		}
 	
 	//update  like a dog by user
 		@RequestMapping(value = "/updateUserdoglike/{username}/{imageurl}/{isLike}", method = RequestMethod.PUT)

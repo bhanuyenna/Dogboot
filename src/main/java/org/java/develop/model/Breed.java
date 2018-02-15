@@ -16,26 +16,29 @@ public class Breed implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int breedId;
 
 	@Column(name = "breed_name")
 	private String breedName;
 
 	// bi-directional many-to-one association to Dog
-	// @JsonBackReference
+	
 	@OneToMany(mappedBy = "breed", fetch = FetchType.LAZY, targetEntity = Dog.class)
 	private List<Dog> dogs;
 
 	public Breed() {
 	}
 
-	public int getId() {
-		return this.id;
+	
+	public int getBreedId() {
+		return breedId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+
+	public void setBreedId(int breedId) {
+		this.breedId = breedId;
 	}
+
 
 	public String getBreedName() {
 		return this.breedName;

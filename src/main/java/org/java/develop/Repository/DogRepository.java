@@ -4,8 +4,8 @@ import org.java.develop.model.Dog;
 import org.springframework.data.repository.CrudRepository;
 
 public interface DogRepository extends CrudRepository<Dog, Integer> {
-	Dog getByDogid(int dogid);
+	Dog getByDogId(int dogId);
 
-	Dog getByImageurl(String imageurl);
+	Dog getByImageUrl(String imageUrl);
 
 }

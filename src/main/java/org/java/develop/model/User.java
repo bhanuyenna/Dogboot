@@ -15,13 +15,13 @@ public class User implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int userId;
 
-	private String firstname;
+	private String firstName;
 
-	private String lastname;
+	private String lastName;
 
-	private String username;
+	private String userName;
 
 	// bi-directional many-to-one association to Userdoglike
 	@OneToMany(mappedBy = "user")
@@ -30,36 +30,36 @@ public class User implements Serializable {
 	public User() {
 	}
 
-	public int getId() {
-		return this.id;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
-	public String getFirstname() {
-		return this.firstname;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getLastname() {
-		return this.lastname;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getUsername() {
-		return this.username;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public List<Userdoglike> getUserdoglikes() {

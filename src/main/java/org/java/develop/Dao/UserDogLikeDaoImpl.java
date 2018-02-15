@@ -2,7 +2,7 @@ package org.java.develop.Dao;
 
 import java.util.List;
 
-import org.java.develop.Repository.UserDogLikeRepository;
+import org.java.develop.Repository.UserdoglikeRepository;
 import org.java.develop.model.Dog;
 import org.java.develop.model.User;
 import org.java.develop.model.Userdoglike;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 public class UserDogLikeDaoImpl implements UserDogLikeDao {
 
 	@Autowired()
-	private UserDogLikeRepository userDogLikeRepository;
+	private UserdoglikeRepository userDogLikeRepository;
 
 	@Override
 	public Userdoglike Savedoglike(Userdoglike u) {
