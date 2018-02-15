@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * The persistent class for the user database table.
+ * Entity class for {@link User}.
  * 
  */
 @Entity

@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 
 /**
- * The persistent class for the dog database table.
+ * Entity class for {@link Dog}.
  * 
  */
 @Entity

@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * The persistent class for the breed database table.
+ * Entity class for {@link Breed}.
  * 
  */
 @Entity

@@ -1,5 +1,6 @@
 package org.java.develop.controller;
 
+import org.java.develop.model.Breed;
 import org.java.develop.model.User;
 import org.java.develop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,11 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+/**
+ * @author Bhanu Rest Controller {@link User} for getting the breed related data
+ *         
+ */
+
 @RestController
 @RequestMapping("/api/User")
 @Api(value = "Dog Controller API", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -26,6 +32,11 @@ public class UserController {
 		this.userService = userService;
 	}
 
+	/**
+	 * This method returns the User Entity based on the UserName
+	 * @param userName
+	 * @return
+	 */
 	@RequestMapping(value = "/getDogBy/{userName}", method = RequestMethod.GET)
 	@ApiOperation("Get User on a specific userName")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = User.class) })

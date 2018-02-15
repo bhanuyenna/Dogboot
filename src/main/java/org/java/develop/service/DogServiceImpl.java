@@ -7,6 +7,13 @@ import org.java.develop.model.Dog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * This class is service layer for DOg Entity 
+ * Implemenntation of Dog Service interface
+ * 
+ * @author Bhanu
+ *
+ */
 @Service
 public class DogServiceImpl implements DogService {
 

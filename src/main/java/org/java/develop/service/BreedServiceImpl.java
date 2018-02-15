@@ -10,18 +10,29 @@ import org.java.develop.model.Dog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * This class is service layer for breed Entity 
+ * Implemenntation of breeed Service interface
+ * 
+ * @author Bhanu
+ *
+ */
 @Service
 public class BreedServiceImpl implements BreedService {
 
 	@Autowired()
 	private BreedDao breedDao;
 
+	/**
+	 * This method returns the list of breed objects
+	 * 
+	 * @return
+	 */
 	@Override
 	public List<Breed> getAllBreeds() {
 
 		List<Breed> breeds = breedDao.getAllBreeds();
-		for(Breed b:breeds)
-		{
+		for (Breed b : breeds) {
 			List<Dog> dogs = b.getDogs();
 			for (Dog d : dogs) {
 				d.setCount(d.getUserdoglikes().size());
@@ -31,6 +42,11 @@ public class BreedServiceImpl implements BreedService {
 		return breeds;
 	}
 
+	/**
+	 * This method returns the list of breed objects
+	 * 
+	 * @return
+	 */
 	@Override
 	@Transactional
 	public Breed getAllBreedsbyName(String name) {
@@ -41,12 +57,7 @@ public class BreedServiceImpl implements BreedService {
 			d.setDogBreed(d.getBreed().getBreedName());
 		}
 		breedByName.setDogs(dogs);
-		return breedByName ;
-	}
-
-	@Override
-	public void gethome() {
-		;
+		return breedByName;
 	}
 
 }

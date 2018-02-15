@@ -8,7 +8,7 @@ import org.hibernate.annotations.Type;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * The persistent class for the userdoglike database table.
+ * Entity class for {@link Userdoglike}.
  * 
  */
 @Entity
@@ -49,26 +49,50 @@ public class Userdoglike implements Serializable {
 
 	
 
+	/**
+	 * This method is to get the userdoglike entity
+	 * @return
+	 */
 	public int getIdUserDogLike() {
 		return idUserDogLike;
 	}
 
+	/**
+	 * This method is to set id for userdoglike entity
+	 * @param idUserDogLike
+	 */
 	public void setIdUserDogLike(int idUserDogLike) {
 		this.idUserDogLike = idUserDogLike;
 	}
 
+	/**
+	 * This method is used to get the dog object
+	 * @return
+	 */
 	public Dog getDog() {
 		return this.dog;
 	}
 
+	/**
+	 * This method is used to set the Dog object
+	 * @param dog
+	 */
 	public void setDog(Dog dog) {
 		this.dog = dog;
 	}
 
+	/**
+	 * This is to get the user object
+	 * @return
+	 */
 	public User getUser() {
 		return this.user;
 	}
 
+	/**
+	 * This method is used to set the User object
+	 * @param user
+	 */
 	public void setUser(User user) {
 		this.user = user;
 	}

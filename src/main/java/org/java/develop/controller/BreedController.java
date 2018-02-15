@@ -21,8 +21,8 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 /**
- * @author Bhanu
- * This Api is for breeds
+ * @author Bhanu Rest Controller {@link Breed} for getting the breed related
+ *         data
  */
 @RestController
 @RequestMapping("/api/Breed")
@@ -35,18 +35,26 @@ public class BreedController {
 		this.breedService = breedService;
 	}
 
-	// get all Breeds
+	/**
+	 * This method returns the list Of all Breeds and dogs in that breed
+	 * @return
+	 */
 	@RequestMapping(value = "/getAllBreeds", method = RequestMethod.GET)
 	@ApiOperation("Get all the breeds and dogs in the breed")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Breed.class) })
 	public ResponseEntity<List<Breed>> listAllBreeds() {
 		List<Breed> breeds = new ArrayList<Breed>();
 
-		 breeds = breedService.getAllBreeds();
+		breeds = breedService.getAllBreeds();
 
 		return new ResponseEntity<List<Breed>>(breeds, HttpStatus.OK);
 	}
 
+	/**
+	 * This method returns the breed entity of a particular breed
+	 * @param name
+	 * @return
+	 */
 	@RequestMapping(value = "/getBreedsBy/{breedname}", method = RequestMethod.GET)
 	@ApiOperation("Get Breed by a specific breed name")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = Breed.class) })
