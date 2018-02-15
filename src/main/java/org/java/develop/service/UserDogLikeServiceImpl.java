@@ -1,6 +1,6 @@
 package org.java.develop.service;
 
-import org.java.develop.Dao.UserDogLikeDao;
+import org.java.develop.dao.UserDogLikeDao;
 import org.java.develop.model.Dog;
 import org.java.develop.model.User;
 import org.java.develop.model.Userdoglike;

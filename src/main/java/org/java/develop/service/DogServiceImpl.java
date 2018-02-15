@@ -2,7 +2,7 @@ package org.java.develop.service;
 
 import java.util.List;
 
-import org.java.develop.Dao.DogDao;
+import org.java.develop.dao.DogDao;
 import org.java.develop.model.Dog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
