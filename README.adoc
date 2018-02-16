@@ -27,14 +27,19 @@ http://localhost:8080/swagger-ui.html
 
 === If You want to use MySQL database 
 ===== Change the application.properties file
-spring.datasource.url= jdbc:mysql://localhost:3306/dogdata<br/>
-spring.datasource.username=<username><br/>
-spring.datasource.password=<password><br/>
-server.port=<port><br/>
-spring.jpa.hibernate.ddl-auto=create<br/>
+spring.datasource.url= jdbc:mysql://localhost:3306/dogdata +
+spring.datasource.username=<username> +
+spring.datasource.password=<password> +
+server.port=<port> +
+spring.jpa.hibernate.ddl-auto=create +
 
 === MYSQL:
  Create Tables in Local Database:
+ 
+[source,sql]
+---- 
+CREATE DATABASE 'dogdata';
+----
 [source,sql]
 ----
 CREATE TABLE `breed` (
